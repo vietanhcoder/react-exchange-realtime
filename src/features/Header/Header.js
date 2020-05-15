@@ -10,7 +10,7 @@ const Header = (props) => {
   };
 
   return (
-    <div className={`block_wrapper ${props.currentCountry}`}>
+    <>
       <div className="header-wrapper">
         <h1 className="header_title">Currency Conversion</h1>
         <div className="header__button-wrapper">
@@ -26,7 +26,7 @@ const Header = (props) => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactCountryFlag from "react-country-flag";
 import { Button } from "./Button";
+import "./cardstyle.scss";
 export const Card = (props) => {
   const _handleOnClick = () => {
     console.log("up to current block");
@@ -24,7 +25,7 @@ export const Card = (props) => {
           countryCode="US"
           style={{
             fontSize: "2em",
-            lineHeight: "2em",
+            lineHeight: "1em",
           }}
           aria-label="United States"
         />

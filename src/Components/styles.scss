@@ -53,13 +53,14 @@
 }
 
 .modal-wrapper {
-  max-width: 800px;
+  max-width: 500px;
   position: relative;
   padding: 1.2rem;
   background: #ffffff;
   background-clip: padding-box;
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
   margin: 0 auto;
+  // width: fit-content;
 
   .isClose {
     position: absolute;
@@ -103,6 +104,36 @@
     }
   }
 
+  .settingModal {
+    display: flex;
+    flex-direction: column;
+
+    #settingModal__source_api {
+      width: 100%;
+      padding: 5px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: left;
+      font-size: 16px;
+
+      select:not(:-internal-list-box) {
+        overflow: visible !important;
+      }
+
+      option {
+        font-weight: normal;
+        display: block;
+        white-space: pre;
+        min-height: 1.2em;
+        padding: 0px 2px 1px;
+      }
+    }
+
+    .settingModal__item {
+      margin-bottom: 20px;
+    }
+  }
 
 
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactCountryFlag from "react-country-flag";
 import { Button } from "./Button";
-import "./cardstyle.scss";
+import "./styles.scss";
 export const Card = (props) => {
   const _handleOnClick = () => {
     console.log("up to current block");
@@ -46,4 +46,3 @@ export const Card = (props) => {
     </div>
   );
 };
-// monetaryUnit

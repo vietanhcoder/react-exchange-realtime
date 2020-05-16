@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card } from "../../Components/";
+import { Card, Button } from "../../Components/";
 
 const CurrentMoney = (props) => {
   const [inputValue, setInputValue] = useState("");
@@ -7,14 +7,24 @@ const CurrentMoney = (props) => {
   const _handleOnChange = (e) => {
     setInputValue(e.target.value);
   };
+  const _handleOnClick = () => {
+    console.log("up to current block");
+  };
+
   return (
     <Card
-      currentBlock="currentBlock"
+      typeCard="currentBlock"
       monetaryUnit="USD"
-      countryName="USA"
-      handleOnChange={_handleOnChange}
-      inputValue={inputValue}
-    />
+      countryName="United States"
+      exchangeValue={`${inputValue}`}
+    >
+      <input
+        type="number"
+        onChange={_handleOnChange}
+        className="Card__input"
+        value={inputValue}
+      />
+    </Card>
   );
 };
 

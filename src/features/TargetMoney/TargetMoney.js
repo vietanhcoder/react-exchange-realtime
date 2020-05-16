@@ -1,13 +1,25 @@
 import React, { useState } from "react";
-import { Card } from "../../Components/";
+import { Card, Button } from "../../Components/";
 
 const TargetMoney = () => {
+  const _handleOnClick = () => {
+    console.log("OUTPUT: _handleOnClick -> _handleOnClick");
+  };
+  const _handleExchange = () => {
+    return 3 * 3;
+  };
   return (
     <Card
-      targetBlock="targetBlock"
+      typeCard="targetBlock"
       monetaryUnit="AED"
       countryName="United Arab Emirates Dirham"
-      targetMoney="exchange function is here"
+      exchangeValue={_handleExchange()}
+      has_button={
+        <Button
+          btnType="switch_to_currentBlock"
+          handleOnClick={_handleOnClick}
+        />
+      }
     />
   );
 };

@@ -14,12 +14,7 @@ const SettingModal = () => {
     <>
       <Modal titleModal="Setting" classModal="settingModal">
         <>
-          <label
-            htmlFor="settingModal__source_api"
-            // className="settingModal__item"
-          >
-            Source
-          </label>
+          <label htmlFor="settingModal__source_api">Source</label>
           <select
             id="settingModal__source_api"
             name="source_api"

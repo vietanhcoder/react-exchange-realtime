@@ -19,3 +19,11 @@ Action 1:
    2.5 save or cancel ==> requires it
 
 3. Click button switch => switch the current monetaryUnit with the one
+
+================================================
+
+1. Call Api + show item respective
+
+=> 1 obj sẽ gồm:
+
+- Cờ, monetary unit, country name, selected: true/false,

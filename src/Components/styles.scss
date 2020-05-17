@@ -27,6 +27,7 @@
 
   .Card__title {
     font-size: 20px;
+
   }
 
   .Card__show_value {
@@ -34,6 +35,14 @@
   }
 }
 
+.exchange_component_title {
+  display: flex;
+  align-items: center;
+
+  .exchange_component_item {
+    margin-right: 10px;
+  }
+}
 
 
 

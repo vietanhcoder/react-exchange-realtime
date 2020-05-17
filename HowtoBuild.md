@@ -27,3 +27,58 @@ Action 1:
 => 1 obj sẽ gồm:
 
 - Cờ, monetary unit, country name, selected: true/false,
+
+{
+Flag: countryCode => ReactCountryFlag,
+monetaryUnit: API rates: https://open.exchangerate-api.com/v6/latest
+countryName: typed
+rates: API rates: https://open.exchangerate-api.com/v6/latest
+}
+
+```bash
+const bird = {
+  size: "small",
+};
+
+const mouse = {
+  name: "Mickey",
+  small: 123,
+};
+console.log(mouse[bird.size]); //123
+```
+
+=> countryName
+
+```
+rate[monetary.[key]]
+```
+
+convert Obj to Arr
+
+```
+const object1 = {
+  a: 'somestring',
+  b: 42
+};
+
+let newArr = []
+for (let [key, value] of Object.entries(object1)) {
+  console.log(`${key}`);
+  newArr.push(`${key}`)
+}
+console.log(newArr)
+
+// expected output:
+// "a: somestring"
+// "b: 42"
+// order is not guaranteed
+```
+
+=============
+Đầu ra cho currency modal sẽ là
+
+1 array chứa obj và trong obj đó sẽ có các giá trị:
+
+- đơn vị tiền tệ + tên nước
+- rates
+- đơn vị tiền

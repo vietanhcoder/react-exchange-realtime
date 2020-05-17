@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./app.scss";
 import Header from "./features/Header";
 import CurrentMoney from "./features/CurrentMoney";
@@ -6,7 +6,7 @@ import TargetMoney from "./features/TargetMoney";
 import CurrencyModal from "./features/Modal/CurrenciesModal";
 import SettingModal from "./features/Modal/SettingModal";
 const App = () => {
-  const [exchangeValue, setExchangeValue] = useState("");
+  // const [exchangeValue, setExchangeValue] = useState("");
 
   return (
     <div className="app">

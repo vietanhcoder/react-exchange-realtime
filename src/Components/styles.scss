@@ -21,13 +21,14 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       text-align: right;
-      font-size: 16px;
+      font-size: 12px;
     }
   }
 
   .Card__title {
     font-size: 20px;
   }
+
 
   .Card__show_value {
     font-size: 25px;
@@ -37,9 +38,11 @@
 .exchange_component_title {
   display: flex;
   align-items: center;
+
   span {
     margin-right: 10px;
   }
+
   .exchange_component_item {
     margin-right: 10px;
   }
@@ -79,6 +82,7 @@
   }
 
   .currencyModal {
+
     &__search,
     select {
       width: 100%;

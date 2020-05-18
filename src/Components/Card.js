@@ -9,7 +9,9 @@ export const Card = (props) => {
         <FlagMonetaryCountryUnit />
       </div>
       {props.children}
-      <div className="Card__show_value">{`monetary unit + ${props.exchangeValue}`}</div>
+      <div className="Card__show_value">
+        {props.currentBlock ? `${props.exchangeValue}` : ""}
+      </div>
     </div>
   );
 };

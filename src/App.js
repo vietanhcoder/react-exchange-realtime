@@ -13,7 +13,7 @@ const App = () => {
       <div className="container">
         <Header />
         <h2>From:</h2>
-        {/* <CurrentMoney /> */}
+        <CurrentMoney />
         <h2>To: </h2>
         {/* <TargetMoney /> */}
         <h2>Currency modal</h2>

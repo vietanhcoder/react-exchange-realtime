@@ -10,9 +10,10 @@ import {
 const initialState = {
   loading: false,
   error: false,
-  countryName: [],
+  countryNames: [],
   setSeletedCurrentModal: false,
   dataMonetary: [],
+  dataRate: {},
 
   // dataExchange: [
   //   {
@@ -22,7 +23,6 @@ const initialState = {
   //     countryCode: "",
   //   },
   // ],
-  // dataRate: {},
 };
 
 const reducers = (state = initialState, action) => {
@@ -59,7 +59,7 @@ const reducers = (state = initialState, action) => {
     case SET_TITLE_BLOCK: {
       return {
         ...state,
-        countryName: [...action.payload, action.payload],
+        countryNames: [...action.payload, action.payload],
       };
     }
     default:

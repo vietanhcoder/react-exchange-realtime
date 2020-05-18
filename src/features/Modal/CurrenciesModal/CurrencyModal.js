@@ -57,7 +57,7 @@ const CurrencyModal = ({
                     onClick={_handleCurrencyModal}
                   >
                     <FlagMonetaryCountryUnit
-                      titleMonentarh={country}
+                      titleMonetary={country}
                       countryCode={country.split(" ")[0]}
                     />
                     {setSeletedCurrentModal && (

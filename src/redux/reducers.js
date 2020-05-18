@@ -4,23 +4,25 @@ import {
   // FETCH_RATES_FAILURE,
   FECTH_MONETARY_START,
   FETCH_MONETARY_SUCCESS,
+  SET_TITLE_BLOCK,
   // FETCH_MONETARY_FAILURE,
 } from "./types";
 const initialState = {
   loading: false,
   error: false,
-  dataExchange: [
-    {
-      countryName: "",
-      rates: "",
-      monetaryUnit: "",
-      countryCode: "",
-    },
-  ],
-  countryName: "",
-  dataRate: {},
-  dataMonetary: [],
+  countryName: [],
   setSeletedCurrentModal: false,
+  dataMonetary: [],
+
+  // dataExchange: [
+  //   {
+  //     countryName: "",
+  //     rates: "",
+  //     monetaryUnit: "",
+  //     countryCode: "",
+  //   },
+  // ],
+  // dataRate: {},
 };
 
 const reducers = (state = initialState, action) => {
@@ -47,15 +49,19 @@ const reducers = (state = initialState, action) => {
     }
     case FETCH_MONETARY_SUCCESS: {
       const data = action.payload.data;
-      console.log("OUTPUT: reducers -> data", data);
 
       return {
         ...state,
-        // dataMonetary: newObj,
+        dataMonetary: data,
         loading: false,
       };
     }
-
+    case SET_TITLE_BLOCK: {
+      return {
+        ...state,
+        countryName: [...action.payload, action.payload],
+      };
+    }
     default:
       return state;
   }

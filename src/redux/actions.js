@@ -7,6 +7,7 @@ import {
   FETCH_RATES_FAILURE,
   FECTH_MONETARY_START,
   FETCH_MONETARY_SUCCESS,
+  SET_TITLE_BLOCK,
   FETCH_MONETARY_FAILURE,
 } from "./types";
 
@@ -44,3 +45,8 @@ export const fetchMonetary = () => async (dispatch) => {
     });
   }
 };
+
+export const setTitleBlock = (payload) => ({
+  type: SET_TITLE_BLOCK,
+  payload,
+});

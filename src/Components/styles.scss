@@ -27,7 +27,6 @@
 
   .Card__title {
     font-size: 20px;
-
   }
 
   .Card__show_value {
@@ -38,13 +37,13 @@
 .exchange_component_title {
   display: flex;
   align-items: center;
-
+  span {
+    margin-right: 10px;
+  }
   .exchange_component_item {
     margin-right: 10px;
   }
 }
-
-
 
 .modal-overlay {
   // background: rgba(0, 0, 0, 0.75);
@@ -80,7 +79,6 @@
   }
 
   .currencyModal {
-
     &__search,
     select {
       width: 100%;
@@ -143,6 +141,4 @@
       margin-bottom: 20px;
     }
   }
-
-
 }

@@ -13,9 +13,9 @@ const App = () => {
       <div className="container">
         <Header />
         <h2>From:</h2>
-        <CurrentMoney />
+        {/* <CurrentMoney /> */}
         <h2>To: </h2>
-        <TargetMoney />
+        {/* <TargetMoney /> */}
         <h2>Currency modal</h2>
         <CurrencyModal />
         <h2>SettingModal</h2>

@@ -1,27 +1,18 @@
 import React, { useEffect } from "react";
-import ReactCountryFlag from "react-country-flag";
+import CurrencyFlag from "react-currency-flags";
 import { connect } from "react-redux";
 
 // import { fetchRates, fetchMonetary } from "../redux/actions";
-const FlagMonetaryCountryUnit = (props) => {
+const FlagMonetaryCountryUnit = ({ countryCode, titleMonentarh }) => {
   // useEffect(() => {
   //   fetchRates();
   //   fetchMonetary();
   // }, []);
-
   return (
     <div className="exchange_component_title">
-      <ReactCountryFlag
-        className="emojiFlag exchange_component_item"
-        countryCode={props.countryCode}
-        style={{
-          fontSize: "2em",
-          lineHeight: "1em",
-        }}
-        aria-label="United States"
-      />
+      <CurrencyFlag currency={countryCode} size="sm" />
       <div className="monetary_code exchange_component_item">
-        {props.titleMonentarh}
+        {titleMonentarh}
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import {
   FETCH_MONETARY_FAILURE,
   SET_ORIGINAL_VALUE,
   TOGGLE_FAVOURITE_MONETARY,
+  SET_ORGINAL_FORM,
 } from "./types";
 
 export const fetchRates = () => async (dispatch) => {
@@ -54,4 +55,12 @@ export const setInputValue = (payload) => ({
 export const toggleFavouriteMonetary = (countryCode, country) => ({
   type: TOGGLE_FAVOURITE_MONETARY,
   payload: { countryCode, country },
+});
+
+export const setOrginalForm = (
+  seletedOriginalCountry,
+  seletedOriginalcountryCode
+) => ({
+  type: SET_ORGINAL_FORM,
+  payload: { seletedOriginalCountry, seletedOriginalcountryCode },
 });

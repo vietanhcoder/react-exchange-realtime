@@ -1,12 +1,21 @@
 import React from "react";
-import { Button } from "../../Components/";
+// import { Button } from "../../Components/";
 import { connect } from "react-redux";
 import FlagMonetaryCountryUnit from "../../Components/FlagMonetaryCountryUnit";
 import { v4 as uuidv4 } from "uuid";
-const TargetMoney = ({ dataRates, inputOriginalValue, seletedCountries }) => {
+
+import { setOrginalForm } from "../../redux/actions";
+
+const TargetMoney = ({
+  dataRates,
+  inputOriginalValue,
+  seletedCountries,
+  setOrginalForm,
+}) => {
   const _handleOnClick = (seletedCountry, countryCode) => {
     console.log("OUTPUT: _handleOnClick -> countryCode", countryCode);
     console.log("OUTPUT: _handleOnClick -> seletedCountry", seletedCountry);
+    setOrginalForm(seletedCountry, countryCode);
   };
 
   const _handleExchange = (countryCodeTarget) => {
@@ -26,7 +35,7 @@ const TargetMoney = ({ dataRates, inputOriginalValue, seletedCountries }) => {
             <div key={uuidv4()} className={`block_wrapper targetBlock`}>
               <div className="Card__title">
                 <button
-                  onClick={_handleOnClick(seletedCountry, countryCode)}
+                  onClick={() => _handleOnClick(seletedCountry, countryCode)}
                   className="btn switch_to_currentBlock"
                 >
                   ⇅
@@ -53,6 +62,7 @@ const TargetMoney = ({ dataRates, inputOriginalValue, seletedCountries }) => {
     </>
   );
 };
+
 const mapStateToProps = (state) => {
   return {
     dataRates: state.appReducers.dataRates,
@@ -60,5 +70,7 @@ const mapStateToProps = (state) => {
     seletedCountries: state.appReducers.seletedCountries,
   };
 };
-
-export default connect(mapStateToProps, null)(TargetMoney);
+const mapDispatchToProps = {
+  setOrginalForm,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(TargetMoney);

@@ -20,7 +20,6 @@ const CurrencyModal = ({
     console.log("OUTPUT: _handleOnChangeModalSearch -> value", value);
     // setSearchValue(value);
   };
-
   const _handleFavouriteMonetary = (countryCode, country) => {
     toggleFavouriteMonetary(countryCode, country);
   };

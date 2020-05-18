@@ -7,6 +7,7 @@ import {
   // FETCH_MONETARY_FAILURE,
   SET_ORIGINAL_VALUE,
   TOGGLE_FAVOURITE_MONETARY,
+  SET_ORGINAL_FORM,
 } from "./types";
 const initialState = {
   loading: false,
@@ -18,6 +19,11 @@ const initialState = {
   countryCodeArr: [],
   inputOriginalValue: "",
   seletedCountries: [],
+
+  formOriginalValue: {
+    seletedOriginalCountry: "",
+    seletedOriginalcountryCode: "",
+  },
 };
 
 const reducers = (state = initialState, action) => {
@@ -101,6 +107,25 @@ const reducers = (state = initialState, action) => {
         ...state,
         selectedCountryCodes: [...newArrCountryCode],
         seletedCountries: [...newArrCountries],
+      };
+    }
+    case SET_ORGINAL_FORM: {
+      const { seletedOriginalCountry } = action.payload;
+      console.log(
+        "OUTPUT: reducers -> seletedOriginalCountry",
+        seletedOriginalCountry
+      );
+      const { seletedOriginalcountryCode } = action.payload;
+      console.log(
+        "OUTPUT: reducers -> seletedOriginalcountryCode",
+        seletedOriginalcountryCode
+      );
+      return {
+        ...state,
+        formOriginalValue: {
+          seletedOriginalCountry,
+          seletedOriginalcountryCode,
+        },
       };
     }
 

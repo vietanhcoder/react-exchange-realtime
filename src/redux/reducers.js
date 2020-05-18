@@ -17,6 +17,7 @@ const initialState = {
   dataRates: {},
   countryCodeArr: [],
   inputOriginalValue: "",
+};
 
 const reducers = (state = initialState, action) => {
   switch (action.type) {

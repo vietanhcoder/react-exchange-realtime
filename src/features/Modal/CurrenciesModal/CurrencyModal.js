@@ -1,20 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { Modal } from "../../../Components/";
 import FlagMonetaryCountryUnit from "../../../Components/FlagMonetaryCountryUnit";
 import { connect } from "react-redux";
 import {
   fetchRates,
   fetchMonetary,
-  setTitleBlock,
+  toggleFavouriteMonetary,
 } from "../../../redux/actions";
 import { v4 as uuidv4 } from "uuid";
 
 const CurrencyModal = ({
-  fetchRates,
-  fetchMonetary,
-  dataMonetary,
-  setSeletedCurrentModal,
-  setTitleBlock,
+  countryNames,
+  setFavouriteMonetary,
+  toggleFavouriteMonetary,
 }) => {
   // const [searchValue, setSearchValue] = useState("");
   const _handleOnChangeModalSearch = (e) => {
@@ -22,20 +20,11 @@ const CurrencyModal = ({
     console.log("OUTPUT: _handleOnChangeModalSearch -> value", value);
     // setSearchValue(value);
   };
-  const _handleCurrencyModal = () => {
-    console.log("_handleCurrencyModal");
+
+  const _handleFavouriteMonetary = (countryCode) => {
+    toggleFavouriteMonetary(countryCode);
   };
 
-  useEffect(() => {
-    fetchRates();
-    fetchMonetary();
-  }, []);
-  const countryCodeArr = Object.keys(dataMonetary);
-  const countryNameArr = [];
-  countryCodeArr.map((code) =>
-    countryNameArr.push(code + " " + dataMonetary[code])
-  );
-  setTitleBlock(countryNameArr);
   return (
     <>
       <Modal titleModal="Currency Modal" classModal="currencyModal">
@@ -47,20 +36,22 @@ const CurrencyModal = ({
             onChange={_handleOnChangeModalSearch}
           />
           <ul className="currencyModal__list">
-            {countryNameArr.length > 0 ? (
-              countryNameArr.map((country) => {
+            {countryNames.length > 0 ? (
+              countryNames.map((country) => {
+                const countryCode = country.split(" ")[0];
                 return (
                   <li
                     className={`currencyModal__item 
                         `}
                     key={uuidv4()}
-                    onClick={_handleCurrencyModal}
+                    onClick={() => _handleFavouriteMonetary(countryCode)}
                   >
                     <FlagMonetaryCountryUnit
                       titleMonetary={country}
-                      countryCode={country.split(" ")[0]}
+                      countryCode={countryCode}
                     />
-                    {setSeletedCurrentModal && (
+                    {/* check ham includes */}
+                    {setFavouriteMonetary.indexOf(countryCode) !== -1 && (
                       <span className="selected_item">★</span>
                     )}
                   </li>
@@ -78,15 +69,14 @@ const CurrencyModal = ({
 
 const mapStateToProps = (state) => {
   return {
-    dataMonetary: state.appReducers.dataMonetary,
-    setSeletedCurrentModal: state.appReducers.setSeletedCurrentModal,
-    dataExchange: state.appReducers.dataExchange,
+    setFavouriteMonetary: state.appReducers.setFavouriteMonetary,
+    countryNames: state.appReducers.countryNames,
   };
 };
 const mapDispatchToProps = {
   fetchRates,
   fetchMonetary,
-  setTitleBlock,
+  toggleFavouriteMonetary,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrencyModal);

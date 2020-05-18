@@ -82,3 +82,13 @@ console.log(newArr)
 - đơn vị tiền tệ + tên nước
 - rates
 - đơn vị tiền
+
+=============
+Rates: API - Targets
+
+- rates Api
+- if rate api === countrynames.map(country => {
+  if(country.substring(0,3) === rate[key]){
+  return rate \* para Input
+  }
+  })

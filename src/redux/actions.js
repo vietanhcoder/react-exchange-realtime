@@ -7,8 +7,9 @@ import {
   FETCH_RATES_FAILURE,
   FECTH_MONETARY_START,
   FETCH_MONETARY_SUCCESS,
-  SET_TITLE_BLOCK,
   FETCH_MONETARY_FAILURE,
+  SET_ORIGINAL_VALUE,
+  TOGGLE_FAVOURITE_MONETARY,
 } from "./types";
 
 export const fetchRates = () => async (dispatch) => {
@@ -46,7 +47,11 @@ export const fetchMonetary = () => async (dispatch) => {
   }
 };
 
-export const setTitleBlock = (payload) => ({
-  type: SET_TITLE_BLOCK,
+export const setInputValue = (payload) => ({
+  type: SET_ORIGINAL_VALUE,
+  payload,
+});
+export const toggleFavouriteMonetary = (payload) => ({
+  type: TOGGLE_FAVOURITE_MONETARY,
   payload,
 });

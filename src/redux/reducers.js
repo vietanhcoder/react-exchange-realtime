@@ -4,25 +4,19 @@ import {
   // FETCH_RATES_FAILURE,
   FECTH_MONETARY_START,
   FETCH_MONETARY_SUCCESS,
-  SET_TITLE_BLOCK,
   // FETCH_MONETARY_FAILURE,
+  SET_ORIGINAL_VALUE,
+  TOGGLE_FAVOURITE_MONETARY,
 } from "./types";
 const initialState = {
   loading: false,
   error: false,
   countryNames: [],
-  setSeletedCurrentModal: false,
+  setFavouriteMonetary: [],
   dataMonetary: [],
-  dataRate: {},
-
-  // dataExchange: [
-  //   {
-  //     countryName: "",
-  //     rates: "",
-  //     monetaryUnit: "",
-  //     countryCode: "",
-  //   },
-  // ],
+  dataRates: {},
+  countryCodeArr: [],
+  inputOriginalValue: "",
 };
 
 const reducers = (state = initialState, action) => {
@@ -35,10 +29,14 @@ const reducers = (state = initialState, action) => {
     }
 
     case FETCH_RATES_SUCCESS: {
+      const { rates } = action.payload;
+      const countryCodeArr = Object.keys(rates);
+
       return {
         ...state,
         loading: false,
-        dataRate: action.payload.rates,
+        countryCodeArr: countryCodeArr,
+        dataRates: rates,
       };
     }
     case FECTH_MONETARY_START: {
@@ -47,23 +45,51 @@ const reducers = (state = initialState, action) => {
         loading: true,
       };
     }
+
     case FETCH_MONETARY_SUCCESS: {
       const data = action.payload.data;
+
+      const countryNameArr = [];
+
+      state.countryCodeArr.map((code) =>
+        countryNameArr.push(code + " " + data[code])
+      );
 
       return {
         ...state,
         dataMonetary: data,
+        countryNames: countryNameArr,
         loading: false,
       };
     }
-    case SET_TITLE_BLOCK: {
+    case SET_ORIGINAL_VALUE: {
       return {
         ...state,
-        countryNames: [...action.payload, action.payload],
+        inputOriginalValue: action.payload,
       };
     }
+    case TOGGLE_FAVOURITE_MONETARY: {
+      const newArr = [...state.setFavouriteMonetary];
+      const checkCountryCode = state.setFavouriteMonetary.indexOf(
+        action.payload
+      );
+      if (checkCountryCode !== -1) {
+        newArr.splice(checkCountryCode, 1);
+      } else {
+        newArr.push(action.payload);
+      }
+      console.log("OUTPUT: reducers -> newArr", newArr);
+
+      return {
+        ...state,
+        setFavouriteMonetary: [...newArr],
+      };
+    }
+
     default:
       return state;
   }
 };
 export default reducers;
+
+//indexOf + filter

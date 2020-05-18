@@ -51,7 +51,7 @@ export const setInputValue = (payload) => ({
   type: SET_ORIGINAL_VALUE,
   payload,
 });
-export const toggleFavouriteMonetary = (payload) => ({
+export const toggleFavouriteMonetary = (countryCode, country) => ({
   type: TOGGLE_FAVOURITE_MONETARY,
-  payload,
+  payload: { countryCode, country },
 });

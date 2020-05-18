@@ -12,11 +12,12 @@ const initialState = {
   loading: false,
   error: false,
   countryNames: [],
-  setFavouriteMonetary: [],
+  selectedCountryCodes: [],
   dataMonetary: [],
   dataRates: {},
   countryCodeArr: [],
   inputOriginalValue: "",
+  seletedCountries: [],
 };
 
 const reducers = (state = initialState, action) => {
@@ -68,21 +69,38 @@ const reducers = (state = initialState, action) => {
         inputOriginalValue: action.payload,
       };
     }
+
+    // find all strings in array containing 'thi'
+    // const items = ['item 1', 'thing', 'id-3-text', 'class'];
+    // const matches = items.filter(s => s.includes('thi'));
+
     case TOGGLE_FAVOURITE_MONETARY: {
-      const newArr = [...state.setFavouriteMonetary];
-      const checkCountryCode = state.setFavouriteMonetary.indexOf(
-        action.payload
+      const newArrCountryCode = [...state.selectedCountryCodes];
+      const newArrCountries = [...state.seletedCountries];
+
+      const checkCountryCode = state.selectedCountryCodes.indexOf(
+        action.payload.countryCode
       );
+      const checkNewArrCountries = state.seletedCountries.indexOf(
+        action.payload.country
+      );
+
       if (checkCountryCode !== -1) {
-        newArr.splice(checkCountryCode, 1);
+        newArrCountryCode.splice(checkCountryCode, 1);
       } else {
-        newArr.push(action.payload);
+        newArrCountryCode.push(action.payload.countryCode);
       }
-      console.log("OUTPUT: reducers -> newArr", newArr);
+
+      if (checkNewArrCountries !== -1) {
+        newArrCountries.splice(checkCountryCode, 1);
+      } else {
+        newArrCountries.push(action.payload.country);
+      }
 
       return {
         ...state,
-        setFavouriteMonetary: [...newArr],
+        selectedCountryCodes: [...newArrCountryCode],
+        seletedCountries: [...newArrCountries],
       };
     }
 

@@ -27,6 +27,11 @@
 
   .Card__title {
     font-size: 20px;
+    display: flex;
+
+    .switch_to_currentBlock {
+      margin-right: 10px;
+    }
   }
 
 

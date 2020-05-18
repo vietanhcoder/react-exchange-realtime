@@ -92,3 +92,10 @@ Rates: API - Targets
   return rate \* para Input
   }
   })
+
+---
+
+xử lý thằng currency modal:
+
+1. Khi mà toggle thì đẩy nó xuống cuối
+2. Khi nó biến thành original thì xóa nó trong list currency modal

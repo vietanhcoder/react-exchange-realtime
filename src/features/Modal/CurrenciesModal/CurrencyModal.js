@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from "uuid";
 
 const CurrencyModal = ({
   countryNames,
-  setFavouriteMonetary,
+  selectedCountryCodes,
   toggleFavouriteMonetary,
 }) => {
   // const [searchValue, setSearchValue] = useState("");
@@ -21,8 +21,8 @@ const CurrencyModal = ({
     // setSearchValue(value);
   };
 
-  const _handleFavouriteMonetary = (countryCode) => {
-    toggleFavouriteMonetary(countryCode);
+  const _handleFavouriteMonetary = (countryCode, country) => {
+    toggleFavouriteMonetary(countryCode, country);
   };
 
   return (
@@ -44,14 +44,16 @@ const CurrencyModal = ({
                     className={`currencyModal__item 
                         `}
                     key={uuidv4()}
-                    onClick={() => _handleFavouriteMonetary(countryCode)}
+                    onClick={() =>
+                      _handleFavouriteMonetary(countryCode, country)
+                    }
                   >
                     <FlagMonetaryCountryUnit
                       titleMonetary={country}
                       countryCode={countryCode}
                     />
                     {/* check ham includes */}
-                    {setFavouriteMonetary.indexOf(countryCode) !== -1 && (
+                    {selectedCountryCodes.indexOf(countryCode) !== -1 && (
                       <span className="selected_item">★</span>
                     )}
                   </li>
@@ -69,7 +71,7 @@ const CurrencyModal = ({
 
 const mapStateToProps = (state) => {
   return {
-    setFavouriteMonetary: state.appReducers.setFavouriteMonetary,
+    selectedCountryCodes: state.appReducers.selectedCountryCodes,
     countryNames: state.appReducers.countryNames,
   };
 };

@@ -22,7 +22,11 @@ const TargetMoney = ({
     if (!dataRates[countryCodeTarget]) {
       return null;
     } else {
-      return inputOriginalValue * dataRates[countryCodeTarget];
+      // return convertedAmount.toLocaleString("fullwide", {
+      //   maximumFractionDigits: 2,
+      // });
+      const convertedAmount = inputOriginalValue * dataRates[countryCodeTarget];
+      return convertedAmount.toFixed(2);
     }
   };
 

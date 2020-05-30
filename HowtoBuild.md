@@ -11,6 +11,7 @@ Action 1:
    1.4 Show elements if user searches
    1.5 display country to section target if it has star
    1.6 if it does have star ==> remove it from the list
+   1.7 switch component from --> To
 
 2. action 2: Setting
    2.2 select the source API

@@ -22,9 +22,6 @@ const TargetMoney = ({
     if (!dataRates[countryCodeTarget]) {
       return null;
     } else {
-      // return convertedAmount.toLocaleString("fullwide", {
-      //   maximumFractionDigits: 2,
-      // });
       const convertedAmount = inputOriginalValue * dataRates[countryCodeTarget];
       return convertedAmount.toFixed(2);
     }
@@ -68,6 +65,7 @@ const TargetMoney = ({
 };
 
 const mapStateToProps = (state) => {
+  console.log("OUTPUT: mapStateToProps -> state", state);
   return {
     dataRates: state.appReducers.dataRates,
     inputOriginalValue: state.appReducers.inputOriginalValue,
